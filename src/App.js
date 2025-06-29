@@ -44,7 +44,7 @@ function App() {
     if (cookieProfile && cookieProfile.name) {
       setUserName(cookieProfile.name);
     } else {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/profile/latest-profile`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/profile/email/${cookieProfile.email}`)
         .then(res => res.json())
         .then(profile => {
           if (!profile.name) return;
